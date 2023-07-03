@@ -1,0 +1,8 @@
+.d-flex{
+  gap:20px;
+}
+.countButton {
+  color: green;
+  font-size: 1.5rem;
+  text-decoration: none;
+}

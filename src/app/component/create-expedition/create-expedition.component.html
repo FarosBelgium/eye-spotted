@@ -1,0 +1,36 @@
+<div class="text-left p-1 px-2 title-block sticky-top">
+  <h2>{{"createExpedition.title"|translate}}</h2>
+</div>
+<div class="text-white my-2 px-4 align-content-center m-auto">
+  <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+    <span id="expeditionNameLabel"><h3>{{"createExpedition.nameExpedition"|translate}}</h3></span>
+    <input aria-labelledby="expeditionNameLabel" class="w-100" type="text" id="expeditionName"
+           formControlName="expeditionName" pInputText/>
+
+    <h3 class="pt-2 pb-4">{{"createExpedition.selectAnimals"|translate}}
+      <p-button icon="pi pi-search" (click)="show()"
+                styleClass="p-button p-button-success float-end"></p-button>
+    </h3>
+    <ng-container *ngIf="loaded">
+      <div class="card m-2 card-block flex" *ngFor="let animal of expeditionTargets">
+        <div class="pt-2 pb-1 px-3 d-flex">
+          <div class="align-self-center">
+
+            <img *ngIf="animal.imageData !== undefined" class="avatarSmall" [src]='animal.imageData | base64Image' alt=""/>
+            <img *ngIf="animal.imageData === undefined" class="avatarSmall" src="assets/animals.jpg" alt=""/>
+
+          </div>
+          <div class="h3 align-self-center">{{animal.name}}</div>
+          <div class="align-self-center ms-auto">
+            <p-button icon="pi pi-times" (click)="deleteFromList(animal.id)" styleClass="p-button-rounded p-button-danger p-button-text"></p-button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+
+
+    <p-button (onClick)="onSubmit()" label="{{'createExpedition.startExpedition'|translate}}"
+              styleClass="p-button-rounded green-600 my-2 w-100"></p-button>
+  </form>
+</div>

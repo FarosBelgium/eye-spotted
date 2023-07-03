@@ -1,0 +1,30 @@
+<div class="d-flex align-items-center h-75">
+  <form class="w-100" [formGroup]="form">
+    <div class="container">
+      <div class="row">
+        <label class="col-12 text-white" htmlFor="username">{{"login.username"|translate}}</label>
+        <input class="col-12" type="text" pInputText id="username" formControlName="username"/>
+      </div>
+      <div class="row">
+        <label class="col-12 text-white" htmlFor="email">{{"login.email"|translate}}</label>
+        <input class="col-12" type="email" pInputText id="email" formControlName="email"/>
+      </div>
+      <div class="row">
+        <label class="col-12 text-white" htmlFor="password">{{"login.password"|translate}}</label>
+        <p-password inputStyleClass="w-100" styleClass="w-100" class="col-12" id="password"
+                    formControlName="password"></p-password>
+      </div>
+      <div class="row">
+        <label class="col-12 text-white" htmlFor="password">{{"login.repeatPassword"|translate}}</label>
+        <p-password inputStyleClass="w-100" styleClass="w-100" class="col-12" id="repeat-password" [feedback]="false"
+                    formControlName="repeatPassword"></p-password>
+        <div class="col-12 text-white fw-bold" *ngIf="message && message.length > 0">{{message}}</div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-12">
+          <button pButton pRipple label="{{'login.register'|translate}}" class="p-button-success w-100" (click)="register()"> </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

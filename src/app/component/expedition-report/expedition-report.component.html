@@ -1,0 +1,19 @@
+<div>
+  <div class="text-left p-1 px-2 title-block sticky-top d-flex justify-content-between">
+    <h2>{{"expeditionReport.title"|translate}}</h2>
+    <p-button icon="pi pi-arrow-left" styleClass="p-button-success p-button-sm" (onClick)="goBack()"></p-button>
+  </div>
+  <div class="m-2" *ngIf="loaded">
+    <p-button (onClick)="downloadCSV()" label="{{'expeditionReport.printReport' | translate }}"
+              styleClass="p-button-rounded green-600 mt-2 mx-2 w-96 display-1"></p-button>
+    <h1 class="text-white">{{"expeditionReport.totalCount"|translate}} {{expedition.totalCount}}</h1>
+
+    <div class="card">
+      <p-chart type="bar" [data]="sightingsByDayData" [options]="sightingsByDayOptions"></p-chart>
+    </div>
+
+    <div class="card flex my-2 justify-content-center">
+      <p-chart type="pie" [data]="sightingsByAnimalData" [options]="sightingsByAnimalOptions"></p-chart>
+    </div>
+  </div>
+</div>

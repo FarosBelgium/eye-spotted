@@ -1,0 +1,69 @@
+{
+  "title": "eyeSpotted",
+  "openExpeditions": {
+    "title": "Open Expedities",
+    "createExpedition": "Maak een nieuwe expeditie",
+    "noOpenExpeditions": "Geen open expedities? Maak er nu een aan!"
+  },
+  "closedExpeditions": {
+    "title": "Gesloten Expedities",
+    "name": "Naam",
+    "animal": "Dier",
+    "from": "Van",
+    "to": "Tot",
+    "tags": "Labels",
+    "apply": "Toepassen",
+    "sortBy": "Sorteer volgens",
+    "filterCleared": "Filter verwijderd",
+    "noResults": "Geen gesloten expedities gevonden. Maak een nieuwe aan!"
+  },
+  "createExpedition": {
+    "title": "Expeditie Maken",
+    "nameExpedition": "Expeditie naam",
+    "selectAnimals": "Selecteer dieren",
+    "startDate": "Start datum",
+    "startExpedition": "Start Expeditie",
+    "searchTagsPlaceholder": "Zoek voor labels",
+    "add": "Voeg toe"
+  },
+  "expeditionReport": {
+    "title": "Expeditie rapport",
+    "totalCount": "Totaal geteld:",
+    "printReport": "Download CSV",
+    "sightings": "Waarnemingen"
+  },
+  "expedition": {
+    "report": "Expeditie rapport",
+    "finishExpedition": "Einde expeditie",
+    "addAnimal": "Voeg een dier toe"
+  },
+  "toastr": {
+    "noNameError": "Gelieve een naam te kiezen.",
+    "noAnimalsError": "Gelieve minstens 1 dier te selecteren."
+  },
+  "login": {
+    "login": "Aanmelden",
+    "register": "Registreer",
+    "username": "Gebruikersnaam",
+    "password": "Wachtwoord",
+    "repeatPassword": "Herhaal wachtwoord",
+    "email": "Email",
+    "registerSuccess": "Gebruiker succesvol aangemaakt!"
+
+  },
+  "animals": {
+    "mammals": "Zoogdieren",
+    "birds": "Vogels",
+    "reptiles": "Reptielen",
+    "fish": "Vissen"
+  },
+  "error": {
+    "EMAIL_ALREADY_IN_USE":"Er bestaat reeds een account met het opgegeven e-mail adres",
+    "INVALID_EMAIL_FORMAT":"Ongeldig e-mail adres",
+    "USERNAME_UNAVAILABLE":"Gebruikersnaam niet beschikbaar",
+    "USERNAME_REQUIRED": "Gebruikersnaam is een verplicht veld",
+    "EMAIL_REQUIRED": "E-mail is een verplicht veld",
+    "PASSWORD_REQUIRED": "Wachtwoord is een verplicht veld",
+    "REPEAT_PASSWORD_REQUIRED": "Herhaal wachtwoord is een verplicht veld"
+  }
+}

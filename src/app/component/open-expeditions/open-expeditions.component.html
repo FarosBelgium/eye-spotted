@@ -1,0 +1,29 @@
+<div class="text-left p-1 px-2 title-block sticky-top">
+  <h2>{{"openExpeditions.title"|translate}}</h2>
+</div>
+<div *ngIf="expeditions.length > 0; else noExpeditions" class="py-2">
+  <div class="card m-2 secondary-block card-block" *ngFor="let expedition of expeditions">
+
+    <a routerLink="/expedition/{{expedition.id}}" class="text-decoration-none d-flex card-body">
+      <div class="h2 align-self-center">{{expedition.name}}</div>
+
+      <div class="ms-auto align-self-center"> {{expedition.startDate | date:'dd MMMM yyy'}}</div>
+    </a>
+  </div>
+  <a routerLink="/createExpedition" class="text-decoration-none">
+    <div class="bottom-button card m-2 primary-block card-block text-center shadow-2">
+      <div class="card-body">
+        <h1>{{"openExpeditions.createExpedition"|translate}}</h1>
+      </div>
+    </div>
+  </a>
+</div>
+<ng-template #noExpeditions class="py-2">
+  <a routerLink="/createExpedition" class="text-decoration-none">
+    <div pRipple class="card m-2 primary-block card-block text-center">
+      <div class="card-body">
+        <h1>{{"openExpeditions.noOpenExpeditions"|translate}}</h1>
+      </div>
+    </div>
+  </a>
+</ng-template>

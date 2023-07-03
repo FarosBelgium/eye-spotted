@@ -1,0 +1,68 @@
+/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+@import "theme.css";
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  background-image: url("/assets/jungle.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#username, #email {
+  --field-margin: 12px;
+
+  margin-left: var(--field-margin);
+  width: calc(100% - var(--field-margin) * 2)
+}
+
+.primary-block {
+  background-color: var(--primary-color);
+  color: var(--primary-color-text);
+}
+
+.title-block {
+  background-color: #484444;
+  color: white;
+}
+
+.secondary-block {
+  background-color: #e0dcdc;
+  color: black;
+}
+
+.card-block {
+  border-radius: 25px;
+}
+
+.w-96 {
+  width: 96%
+}
+.cursorPointer{
+  cursor:pointer;
+}
+
+img.avatarSmall {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+
+}
+
+
+img.avatarMed {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+  padding:2px;
+}

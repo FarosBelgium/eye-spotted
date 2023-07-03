@@ -1,0 +1,28 @@
+html, body {
+  max-height: 100vh;
+}
+
+body {
+  margin: 0;
+}
+
+:host {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
+#body{
+  --padding: 75px;
+  padding-bottom: var(--padding);
+}
+navbar-footer{
+  height:55px;
+}
+.nav-icon {
+  color: white;
+  font-size: 2.5rem;
+}
+

@@ -1,0 +1,23 @@
+<div class="d-flex align-items-center h-75">
+  <div class="container">
+    <div class="row">
+      <label class="col-12 text-white" htmlFor="username">{{"login.username" |translate}}</label>
+      <input class="col-12" type="email" pInputText id="username" [(ngModel)]="loginDetail.username"/>
+    </div>
+    <div class="row">
+      <label class="col-12 text-white" htmlFor="password">{{"login.password"|translate}}</label>
+      <p-password inputStyleClass="w-100" styleClass="w-100" class="col-12" id="password" [feedback]="false"
+                  [(ngModel)]="loginDetail.password"></p-password>
+      <div class="col-12 text-white fw-bold" *ngIf="message && message.length > 0">{{message}}</div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-12">
+        <button pButton pRipple label='{{"login.login" |translate}}' class="p-button-success w-100" (click)="login()"> </button>
+      </div>
+      <div class="col-12 mt-1 mt-sm-2">
+        <button pButton pRipple label="{{'login.register'|translate}}" class="p-button-success w-100" [routerLink]="['/register']"> </button>
+      </div>
+    </div>
+  </div>
+</div>
+

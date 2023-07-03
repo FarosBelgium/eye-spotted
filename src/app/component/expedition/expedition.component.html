@@ -1,0 +1,54 @@
+<div *ngIf="expeditionDataLoaded">
+  <div class="text-left p-1 px-2 title-block sticky-top">
+    <h2>{{expedition.name}}</h2>
+  </div>
+
+  <ng-container *ngIf="expeditionTargetsLoaded && animalService.loaded else spinner">
+    <div class="m-2">
+    <p-button routerLink="report" label='{{"expedition.report"|translate}}'
+              styleClass="p-button-rounded green-600 w-100"></p-button>
+    </div>
+    <div class="card m-2 secondary-block card-block flex" *ngFor="let target of expeditionTargets">
+      <div class="pt-2 pb-1 px-3 d-flex">
+        <div class="align-self-center">
+
+          <img *ngIf="(target.animalId | animal)?.imageData !== undefined; else defaultImg" class="avatarMed"
+               [src]='(target.animalId | animal)?.imageData | base64Image' alt=""/>
+          <ng-template #defaultImg><img class="avatarMed" src="assets/animals.jpg" alt=""></ng-template>
+
+        </div>
+        <div class="h3 align-self-center">{{animalService.getAnimalById(target.animalId)?.name}}</div>
+        <div *ngIf="expedition.endDate == undefined; else closedBlock" class="ms-auto align-self-center">
+          <a (click)="removeSighting(target)" class="pi pi-minus-circle px-2 countButton"></a>
+          <span class="align-self-center h4">{{target.sightingsCount}}</span>
+          <a (click)="registerSighting(target)" class="pi pi-plus-circle px-2 countButton"></a>
+        </div>
+        <ng-template #closedBlock>
+          <div class="ms-auto align-self-center px-4">
+            <span class="align-self-center h4">{{target.sightingsCount}}</span>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #spinner>
+    <div class="d-flex align-items-center justify-content-center">
+      <p-progressSpinner></p-progressSpinner>
+    </div>
+  </ng-template>
+  <a *ngIf="expedition.endDate == undefined" (click)="addAnimals()" class="card m-2 secondary-block card-block flex text-decoration-none cursorPointer">
+    <div class="pt-2 pb-2 px-3 d-flex">
+
+        <p-button class="mx-2" icon="pi pi-plus" (click)="addAnimals()" styleClass="p-button-outlined p-button-rounded p-button-lg"/>
+
+      <div class="h3 px-1 align-self-center">{{'expedition.addAnimal' |translate}}</div>
+
+    </div>
+  </a>
+  <a *ngIf="expedition.endDate == undefined" (click)="finishExpedition()"
+     class="text-decoration-none card m-2 primary-block card-block text-center shadow-2 cursorPointer">
+    <a class="card-body text-decoration-none">
+      <h1>{{"expedition.finishExpedition"|translate}}</h1>
+    </a>
+  </a>
+</div>

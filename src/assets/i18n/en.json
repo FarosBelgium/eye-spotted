@@ -1,0 +1,71 @@
+{
+  "title": "eyeSpotted",
+  "openExpeditions": {
+    "title": "Open Expeditions",
+    "createExpedition": "Create new expedition",
+    "noOpenExpeditions": "No open expeditions? Create one now!"
+  },
+  "closedExpeditions": {
+    "title": "Closed Expeditions",
+    "name": "Name",
+    "animal": "Animal",
+    "from": "From",
+    "to": "To",
+    "tags": "Tags",
+    "apply": "Apply",
+    "sortBy": "Sort By",
+    "filterCleared": "Filter cleared",
+    "noResults": "No closed expeditions found. Create a new one!"
+
+  },
+  "createExpedition": {
+    "title": "Create Expedition",
+    "nameExpedition": "Name expedition",
+    "selectAnimals": "Select Animals",
+    "startDate": "Start date",
+    "startExpedition": "Start Expedition",
+    "searchTagsPlaceholder": "search for tags",
+    "add": "Add"
+  },
+  "expeditionReport": {
+    "title": "Expedition report",
+    "totalCount": "Total count:",
+    "sightings": "Sightings",
+    "printReport": "Download CSV"
+  },
+  "expedition": {
+    "report": "Expedition report",
+    "addAnimal": "Add an animal",
+    "finishExpedition": "Finish expedition"
+  },
+  "toastr": {
+    "noNameError": "Please choose a name",
+    "noAnimalsError": "Please select at least 1 animal"
+  },
+  "login": {
+    "login": "Login",
+    "register": "Register",
+    "username": "Username",
+    "password": "Password",
+    "repeatPassword": "Repeat Password",
+    "email": "Email",
+    "registerSuccess": "Successfully registered user. Please log in."
+  },
+  "animals": {
+    "mammals": "Mammals",
+    "birds": "Birds",
+    "reptiles": "Reptiles",
+    "fish": "Fish"
+
+  },
+
+  "error": {
+    "EMAIL_ALREADY_IN_USE":"An account with this email already exists",
+    "INVALID_EMAIL_FORMAT":"Invalid email address",
+    "USERNAME_UNAVAILABLE":"Username unavailable",
+    "USERNAME_REQUIRED": "Username is a required field",
+    "EMAIL_REQUIRED": "Email is a required field",
+    "PASSWORD_REQUIRED": "Password is a required field",
+    "REPEAT_PASSWORD_REQUIRED": "Repeat password is a required field"
+  }
+}

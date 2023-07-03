@@ -1,0 +1,55 @@
+
+<div class="text-left p-1 pb-2 px-2 title-block sticky-top">
+
+  <h2 class="d-inline">{{"closedExpeditions.title"|translate}}</h2>
+
+  <i class="pi pi-filter-fill float-end mt-2 cursorPointer" (click)="showDialog()" style="font-size: 1.4rem" data-bs-toggle="modal"
+     data-bs-target="#test"></i>
+  <i class="pi pi-filter-slash float-end px-2 mt-2 text-danger cursorPointer" (click)="clearFilter()" style="font-size: 1.4rem; margin-right: 5px"></i>
+
+</div>
+
+<div class="py-2">
+  <div class="card m-2 card-block secondary-block" *ngFor="let expedition of expeditions">
+    <a routerLink="/expedition/{{expedition.id}}" class="text-decoration-none card-body">
+      <h3 class="card-title">
+        {{expedition.name}}
+      </h3>
+    </a>
+  </div>
+  <a *ngIf="expeditions.length === 0" routerLink="/createExpedition" class="text-decoration-none">
+    <div pRipple class="card m-2 primary-block card-block text-center">
+      <div class="card-body">
+        <h1>{{'closedExpeditions.noResults' | translate}}</h1>
+      </div>
+    </div>
+  </a>
+
+</div>
+
+<p-dialog header="{{'closedExpeditions.sortBy'|translate}}" [(visible)]="visible" [style]="{width: '80vw'}">
+  <form [formGroup]="filterForm">
+    <label class="col-12 text-black" htmlFor="username">{{"closedExpeditions.name"|translate}}</label>
+    <input class="col-12" type="text" pInputText id="name" formControlName="name"/>
+
+    <label class="col-12 text-black" htmlFor="animal">{{"closedExpeditions.animal"|translate}}</label>
+    <input class="col-12" type="text" pInputText id="animal" formControlName="animal"/>
+
+    <label class="col-12 text-black" htmlFor="dateFrom">{{"closedExpeditions.from"|translate}}</label>
+    <p-calendar aria-labelledby="dateFrom" appendTo="body" styleClass="w-100" [touchUI]="true" [showIcon]="true"
+                id="dateFrom"
+                dateFormat="dd/mm/yy" formControlName="dateFrom"></p-calendar>
+
+    <label class="col-12 text-black" htmlFor="dateTo">{{"closedExpeditions.to"|translate}}</label>
+    <p-calendar aria-labelledby="dateTo" appendTo="body" styleClass="w-100" [touchUI]="true" [showIcon]="true"
+                id="dateTo"
+                dateFormat="dd/mm/yy" formControlName="dateTo"></p-calendar>
+
+    <label class="text-black" htmlFor="tags">{{"closedExpeditions.tags"|translate}}</label>
+    <p-multiSelect aria-labelledby="tags"  [options]="tags" id="tags" class="p-fluid w-100"
+                    optionLabel="name" display="chip" formControlName="tags"></p-multiSelect>
+
+    <p-button (onClick)="filterExpeditions()" label="{{'closedExpeditions.apply'|translate}}"
+              styleClass="p-button-rounded green-600 my-2 w-100"></p-button>
+  </form>
+</p-dialog>

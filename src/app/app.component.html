@@ -1,0 +1,19 @@
+<p-toast></p-toast>
+<div class="text-center p-1 primary-block d-flex justify-content-between">
+  <div></div>
+  <h1 routerLink="/expeditions" class="ps-4 align-self-center cursorPointer">{{"title"|translate}} </h1>
+  <div class="pe-2 align-self-center">
+    <a class="cursorPointer text-white text-decoration-none" *ngIf="selectedLanguage ==='en'" (click)="useLanguage('nl')">EN</a>
+    <a class="cursorPointer text-white text-decoration-none" *ngIf="selectedLanguage ==='nl'" (click)="useLanguage('en')">NL</a>
+  </div>
+</div>
+<div id="body">
+  <router-outlet></router-outlet>
+</div>
+<div *ngIf="authService.username" id="navbar-footer" class="px-5 p-3 fixed-bottom navbar primary-block">
+  <a routerLink="/expeditions" routerLinkActive="active"><i class="nav-icon pi pi-home"></i></a>
+  <a routerLink="/closedExpeditions" routerLinkActive="active"><i class="nav-icon pi pi-history"></i></a>
+  <a routerLink="/createExpedition" routerLinkActive="active"><i class="nav-icon pi pi-plus"></i></a>
+  <a routerLink="/login" (click)="authService.logout()" routerLinkActive="active"><i class="nav-icon pi pi-sign-out"></i></a>
+</div>
+
