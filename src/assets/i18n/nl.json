@@ -30,7 +30,8 @@
     "title": "Expeditie rapport",
     "totalCount": "Totaal geteld:",
     "printReport": "Download CSV",
-    "sightings": "Waarnemingen"
+    "sightings": "Waarnemingen",
+    "other": "Andere"
   },
   "expedition": {
     "report": "Expeditie rapport",

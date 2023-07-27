@@ -5,6 +5,7 @@ import {ExpeditionTargetService} from "../../service/expedition-target/expeditio
 import {ExpeditionData} from "../../model/expeditionData";
 import {TranslateService} from "@ngx-translate/core";
 import {saveAs} from "file-saver";
+import {AnimalService} from "../../service/animal/animal.service";
 
 
 @Component({
@@ -23,7 +24,7 @@ export class ExpeditionReportComponent implements OnInit {
   expeditionId!: number;
 
 
-  constructor(private expeditionService: ExpeditionService, private expeditionTargetService: ExpeditionTargetService, private route: ActivatedRoute, private translate: TranslateService, private router: Router) {
+  constructor(protected animalService: AnimalService, private expeditionService: ExpeditionService, private expeditionTargetService: ExpeditionTargetService, private route: ActivatedRoute, private translate: TranslateService, private router: Router) {
   }
 
   ngOnInit() {
@@ -71,7 +72,6 @@ export class ExpeditionReportComponent implements OnInit {
   }
 
 
-
   private getSightingsByAnimalData() {
     const labels: string[] = [];
     const data: any[] = [];
@@ -82,20 +82,41 @@ export class ExpeditionReportComponent implements OnInit {
       return b.count - a.count;
     });
 
-    this.expedition.sightingsByAnimals.forEach(animal => {
-      if (animal.count > 0) {
-        labels.push(animal.animal.name);
-        data.push(animal.count);
+    if (this.expedition.sightingsByAnimals.length > 8) {
+      let i = 1;
+      let otherCount = 0;
+      this.expedition.sightingsByAnimals.forEach(animal => {
+        if (animal.count > 0 && i < 8) {
+          labels.push(this.animalService.getAnimalById(animal.animal.id)?.name??"undefined");
+          data.push(animal.count);
+          i++;
+        } else if (i >= 8) {
+          otherCount += animal.count
+        }
+
+      });
+      if (otherCount > 0){
+        labels.push(this.translate.instant("expeditionReport.other"))
+        data.push(otherCount)
       }
-    });
+
+    } else {
+      this.expedition.sightingsByAnimals.forEach(animal => {
+        if (animal.count > 0) {
+          labels.push(this.animalService.getAnimalById(animal.animal.id)?.name??"undefined");
+          data.push(animal.count);
+        }
+      });
+    }
+
 
     this.sightingsByAnimalData = {
       labels: labels,
       datasets: [
         {
           data: data,
-          backgroundColor: [documentStyle.getPropertyValue('--blue-500'), documentStyle.getPropertyValue('--yellow-500'), documentStyle.getPropertyValue('--green-500'), documentStyle.getPropertyValue('--red-500'), documentStyle.getPropertyValue('--cyan-500'), documentStyle.getPropertyValue('--purple-500'), documentStyle.getPropertyValue('--orange-500'), documentStyle.getPropertyValue('--teal-500')],
-          hoverBackgroundColor: [documentStyle.getPropertyValue('--blue-400'), documentStyle.getPropertyValue('--yellow-400'), documentStyle.getPropertyValue('--green-400'), documentStyle.getPropertyValue('--red-400'), documentStyle.getPropertyValue('--cyan-400'), documentStyle.getPropertyValue('--purple-400'), documentStyle.getPropertyValue('--orange-400'), documentStyle.getPropertyValue('--teal-400')]
+          backgroundColor: [documentStyle.getPropertyValue('--blue-500'), documentStyle.getPropertyValue('--yellow-500'), documentStyle.getPropertyValue('--green-500'), documentStyle.getPropertyValue('--red-500'), documentStyle.getPropertyValue('--cyan-500'), documentStyle.getPropertyValue('--purple-900'), documentStyle.getPropertyValue('--orange-500'), documentStyle.getPropertyValue('--purple-200')],
+          hoverBackgroundColor: [documentStyle.getPropertyValue('--blue-400'), documentStyle.getPropertyValue('--yellow-400'), documentStyle.getPropertyValue('--green-400'), documentStyle.getPropertyValue('--red-400'), documentStyle.getPropertyValue('--cyan-400'), documentStyle.getPropertyValue('--purple-800'), documentStyle.getPropertyValue('--orange-400'), documentStyle.getPropertyValue('--purple-100')]
         }
       ]
     };
@@ -110,6 +131,7 @@ export class ExpeditionReportComponent implements OnInit {
       }
     };
   }
+
   downloadCSV(): void {
     this.expeditionService.downloadExpeditionData(this.expeditionId).subscribe((buffer) => {
       const data: Blob = new Blob([buffer], {
@@ -117,7 +139,7 @@ export class ExpeditionReportComponent implements OnInit {
       });
       // you may improve this code to customize the name
       // of the export based on date or some other factors
-      saveAs(data, "expedition"+this.expeditionId+".csv");
+      saveAs(data, "expedition" + this.expeditionId + ".csv");
     });
   }
 

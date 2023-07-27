@@ -16,7 +16,6 @@
     "sortBy": "Sort By",
     "filterCleared": "Filter cleared",
     "noResults": "No closed expeditions found. Create a new one!"
-
   },
   "createExpedition": {
     "title": "Create Expedition",
@@ -31,7 +30,8 @@
     "title": "Expedition report",
     "totalCount": "Total count:",
     "sightings": "Sightings",
-    "printReport": "Download CSV"
+    "printReport": "Download CSV",
+    "other": "Other"
   },
   "expedition": {
     "report": "Expedition report",
@@ -56,9 +56,7 @@
     "birds": "Birds",
     "reptiles": "Reptiles",
     "fish": "Fish"
-
   },
-
   "error": {
     "EMAIL_ALREADY_IN_USE":"An account with this email already exists",
     "INVALID_EMAIL_FORMAT":"Invalid email address",
