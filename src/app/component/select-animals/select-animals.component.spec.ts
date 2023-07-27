@@ -3,7 +3,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {SelectAnimalsComponent} from './select-animals.component';
 import {AppModule} from "../../app.module";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
-import {DynamicDialogRef} from "primeng/dynamicdialog";
+import {DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
 
 describe('SelectAnimalsComponent', () => {
   let component: SelectAnimalsComponent;
@@ -15,7 +15,7 @@ describe('SelectAnimalsComponent', () => {
       imports: [AppModule, HttpClientTestingModule],
       providers: [
         {provide: DynamicDialogRef, useValue: {}},
-
+        {provide: DynamicDialogConfig, useValue: {}}
       ]
     });
     fixture = TestBed.createComponent(SelectAnimalsComponent);
