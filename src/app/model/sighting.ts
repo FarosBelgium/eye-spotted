@@ -1,6 +1,7 @@
 import {ExpeditionTargetId} from "./expeditionTargetId";
 
 export interface Sighting{
-location: string;
+longitude: string;
+latitude: string;
 expeditionTarget: ExpeditionTargetId;
 }

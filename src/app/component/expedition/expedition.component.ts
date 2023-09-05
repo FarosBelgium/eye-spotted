@@ -4,7 +4,6 @@ import {ExpeditionService} from "../../service/expedition/expedition.service";
 import {Expedition} from "../../model/expedition";
 import {ExpeditionTargetCount} from "../../model/expeditionTargetCount";
 import {ExpeditionTargetService} from "../../service/expedition-target/expedition-target.service";
-import {Sighting} from "../../model/sighting";
 import {AnimalService} from "../../service/animal/animal.service";
 import {DialogService, DynamicDialogRef} from "primeng/dynamicdialog";
 import {TranslateService} from "@ngx-translate/core";
@@ -59,13 +58,7 @@ export class ExpeditionComponent implements OnInit {
   }
 
   registerSighting(target: ExpeditionTargetCount) {
-    const sighting: Sighting = {
-      location: 'Zoo Planckendael',
-      expeditionTarget: {
-        animalId: target.animalId
-      }
-    }
-    this.expeditionTargetService.registerSighting(target.id, sighting).subscribe(() => target.sightingsCount++);
+    this.expeditionTargetService.registerSighting(target.id).subscribe(() => target.sightingsCount++);
   }
 
   removeSighting(target: ExpeditionTargetCount) {

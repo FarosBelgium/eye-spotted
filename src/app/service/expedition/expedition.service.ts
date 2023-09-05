@@ -8,7 +8,6 @@ import {ExpeditionTargetCount} from "../../model/expeditionTargetCount";
 import {ExpeditionFilter} from "../../model/expedition-filter";
 import {toLocalDateString} from "../../util/date-util";
 import {ExpeditionData} from "../../model/expeditionData";
-import {Animal} from "../../model/animal";
 
 @Injectable({
   providedIn: 'root'
