@@ -1,6 +1,6 @@
 import {Animal} from "./animal";
 
 export interface SightingsByAnimal {
-  animal:Animal;
+  animalId:number;
   count: number
 }

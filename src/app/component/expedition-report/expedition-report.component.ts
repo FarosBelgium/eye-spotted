@@ -87,7 +87,7 @@ export class ExpeditionReportComponent implements OnInit {
       let otherCount = 0;
       this.expedition.sightingsByAnimals.forEach(animal => {
         if (animal.count > 0 && i < 8) {
-          labels.push(this.animalService.getAnimalById(animal.animal.id)?.name??"undefined");
+          labels.push(this.animalService.getAnimalById(animal.animalId)?.name??"undefined");
           data.push(animal.count);
           i++;
         } else if (i >= 8) {
@@ -103,7 +103,7 @@ export class ExpeditionReportComponent implements OnInit {
     } else {
       this.expedition.sightingsByAnimals.forEach(animal => {
         if (animal.count > 0) {
-          labels.push(this.animalService.getAnimalById(animal.animal.id)?.name??"undefined");
+          labels.push(this.animalService.getAnimalById(animal.animalId)?.name??"undefined");
           data.push(animal.count);
         }
       });
