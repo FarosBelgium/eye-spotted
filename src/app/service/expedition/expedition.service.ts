@@ -41,8 +41,8 @@ export class ExpeditionService {
   createExpedition(expedition: CreateExpedition): Observable<Expedition> {
     return this.http.post<Expedition>(environment.url + "/expeditions", expedition);
   }
-  addExpeditionTargets(animals : Animal[],id:number){
-    return this.http.post<void>(environment.url + "/expeditions/" + id + "/targets",animals)
+  addExpeditionTargets(animalIds : number[],id:number){
+    return this.http.post<void>(environment.url + "/expeditions/" + id + "/targets",animalIds)
   }
   getExpedition(id: number): Observable<Expedition> {
     return this.http.get<Expedition>(environment.url + "/expeditions/" + id);

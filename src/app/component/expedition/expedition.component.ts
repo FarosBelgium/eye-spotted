@@ -91,7 +91,8 @@ export class ExpeditionComponent implements OnInit {
       baseZIndex: 10000
     });
     this.ref.onClose.subscribe((animals: Animal[]) => {
-      this.expeditionService.addExpeditionTargets(animals, this.expedition.id).subscribe(() => this.getData());
+      let animalIds = animals.map(a => a.id);
+      this.expeditionService.addExpeditionTargets(animalIds, this.expedition.id).subscribe(() => this.getData());
 
     })
 
